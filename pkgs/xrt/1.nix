@@ -1,5 +1,5 @@
 {
-  python312,
+  python,
   buildPythonPackage,
   fetchFromGitHub,
 }:
@@ -14,10 +14,10 @@ buildPythonPackage {
     sha256 = "sha256-BfMfAx/sN3Uf/JxY41DzDce0yAotFeI9o//wINeOVEM=";
   };
 
-  postInstall = ''
-    makeWrapper $out/bin/xrtQookStart.py $out/bin/xrtQook --run "chmod -R 777 \$HOME/.xrt"
-    makeWrapper ${python312.interpreter} $out/bin/xrtBentXtal \
-    --add-flags "$out/lib/python3.12/site-packages/xrt/gui/xrtBentXtal.py" \
-    --run "chmod -R 777 \$HOME/.xrt"
-  '';
+  #postInstall = ''
+  #  makeWrapper $out/bin/xrtQookStart.py $out/bin/xrtQook --run "chmod -R 777 \$HOME/.xrt"
+  #  makeWrapper ${python3.interpreter} $out/bin/xrtBentXtal \
+  #  --add-flags "$out/lib/python3.12/site-packages/xrt/gui/xrtBentXtal.py" \
+  #  --run "chmod -R 777 \$HOME/.xrt"
+  #'';
 }
